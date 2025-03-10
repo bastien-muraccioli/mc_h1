@@ -1,0 +1,3 @@
+#pragma once
+
+constexpr auto H1_DESCRIPTION_PATH = "@H1_DESCRIPTION_PATH@";
