@@ -4,26 +4,30 @@
 #include <mc_rtc/constants.h>
 #include <mc_rtc/logging.h>
 #include <RBDyn/parsers/urdf.h>
-#include <boost/algorithm/string.hpp>
+
+#include <boost/filesystem.hpp>
+namespace bfs = boost::filesystem;
 
 namespace mc_robots
 {
 
 H1RobotModule::H1RobotModule()
-  : nc_rbdyn::RobotModule(H1_DESCRIPTION_PATH,
-                          "h1"
-                          std::string{mc_rtc::H1_DESCRIPTION_PATH} + std::string{"/urdf/H1main.urdf"})
+  : RobotModule(mc_rtc::H1_DESCRIPTION_PATH,
+                "h1",
+                std::string{mc_rtc::H1_DESCRIPTION_PATH} + std::string{"/urdf/h1.urdf"})
 {
+  rsdf_dir = std::string(mc_rtc::H1_DESCRIPTION_PATH) + "/rsdf";
+  
   // True if the robot has a fixed base, false otherwise  
   bool fixed = false;
   // Makes all the basic initialization that can be done from an URDF file
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
   
   // Build _convexHull
-  bfs::path convexPath = bfs::path(path) / "convex/HRP5Pmain";
+  bfs::path convexPath = bfs::path(path) / "convex/h1";
   for(const auto & b : mb.bodies())
   {
-    bfs::path ch = convexPath / (b.name() + "_mesh-ch.txt");
+    bfs::path ch = convexPath / (b.name() + ".txt");
     if(bfs::exists(ch))
     {
       _convexHull[b.name()] = {b.name(), ch.string()};
@@ -89,7 +93,6 @@ H1RobotModule::H1RobotModule()
   _bodySensors.emplace_back("Accelerometer", "BODY", sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
   _bodySensors.emplace_back("FloatingBase", "BODY", sva::PTransformd::Identity());
   
-#if 0
   _minimalSelfCollisions = {
     mc_rbdyn::Collision("torso_link", "left_shoulder_yaw_link", 0.02, 0.001, 0.),
     mc_rbdyn::Collision("torso_link", "right_shoulder_yaw_link", 0.02, 0.001, 0.),
@@ -105,7 +108,31 @@ H1RobotModule::H1RobotModule()
     mc_rbdyn::Collision("left_ankle_link", "rigth_knee_link", 0.02, 0.01, 0.),
     mc_rbdyn::Collision("right_ankle_link", "left_knee_link", 0.02, 0.01, 0.)};
   _commonSelfCollisions = _minimalSelfCollisions;
-#endif
 }
 
 } // namespace mc_robots
+
+extern "C"
+{
+  ROBOT_MODULE_API void MC_RTC_ROBOT_MODULE(std::vector<std::string> & names)
+  {
+    names = {"H1"};
+  }
+  ROBOT_MODULE_API void destroy(mc_rbdyn::RobotModule * ptr)
+  {
+    delete ptr;
+  }
+  ROBOT_MODULE_API mc_rbdyn::RobotModule * create(const std::string & n)
+  {
+    ROBOT_MODULE_CHECK_VERSION("H1")
+    if(n == "H1")
+    {
+      return new mc_robots::H1RobotModule();
+    }
+    else
+    {
+      mc_rtc::log::error("H1 module Cannot create an object of type {}", n);
+      return nullptr;
+    }
+  }
+}
