@@ -23,6 +23,7 @@ H1RobotModule::H1RobotModule()
   // Makes all the basic initialization that can be done from an URDF file
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
   
+#if 0
   // Build _convexHull
   bfs::path convexPath = bfs::path(path) / "convex/h1";
   for(const auto & b : mb.bodies())
@@ -33,6 +34,7 @@ H1RobotModule::H1RobotModule()
       _convexHull[b.name()] = {b.name(), ch.string()};
     }
   }
+#endif
   
   _ref_joint_order = {
     "left_hip_yaw_joint",
@@ -105,7 +107,7 @@ H1RobotModule::H1RobotModule()
     mc_rbdyn::Collision("left_hip_pitch_link", "right_hip_pitch_link", 0.02, 0.01, 0.),
     mc_rbdyn::Collision("left_knee_link", "right_knee_link", 0.02, 0.01, 0.),
     mc_rbdyn::Collision("left_ankle_link", "right_ankle_link", 0.02, 0.01, 0.),
-    mc_rbdyn::Collision("left_ankle_link", "rigth_knee_link", 0.02, 0.01, 0.),
+    mc_rbdyn::Collision("left_ankle_link", "right_knee_link", 0.02, 0.01, 0.),
     mc_rbdyn::Collision("right_ankle_link", "left_knee_link", 0.02, 0.01, 0.)};
   _commonSelfCollisions = _minimalSelfCollisions;
 }
