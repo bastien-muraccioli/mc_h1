@@ -24,7 +24,7 @@ H1RobotModule::H1RobotModule()
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
   
 #if 0
-  // Build _convexHull
+  // Build _convexHull, but conflict primitives defined in h1.urdf
   bfs::path convexPath = bfs::path(path) / "convex/h1";
   for(const auto & b : mb.bodies())
   {
@@ -55,7 +55,8 @@ H1RobotModule::H1RobotModule()
     "right_shoulder_pitch_joint",
     "right_shoulder_roll_joint",
     "right_shoulder_yaw_joint",
-    "right_elbow_joint"
+    "right_elbow_joint",
+    "not_used_joint"
   };
   
   using namespace mc_rtc::constants;
@@ -92,8 +93,8 @@ H1RobotModule::H1RobotModule()
   
   // Sensors
   _bodySensors.clear();
-  _bodySensors.emplace_back("Accelerometer", "BODY", sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
-  _bodySensors.emplace_back("FloatingBase", "BODY", sva::PTransformd::Identity());
+  _bodySensors.emplace_back("Accelerometer", "pelvis", sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
+  _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
   
   _minimalSelfCollisions = {
     mc_rbdyn::Collision("torso_link", "left_shoulder_yaw_link", 0.02, 0.001, 0.),
