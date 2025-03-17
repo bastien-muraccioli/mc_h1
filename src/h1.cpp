@@ -55,8 +55,7 @@ H1RobotModule::H1RobotModule()
     "right_shoulder_pitch_joint",
     "right_shoulder_roll_joint",
     "right_shoulder_yaw_joint",
-    "right_elbow_joint",
-    "not_used_joint"
+    "right_elbow_joint"
   };
   
   using namespace mc_rtc::constants;
