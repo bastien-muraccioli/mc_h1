@@ -28,8 +28,6 @@ endmacro()
 
 add_module(h1)
 
-add_subdirectory(etc)
-
 option(DISABLE_TESTS "Disable unit tests" OFF)
 if(NOT ${DISABLE_TESTS})
   enable_testing()
