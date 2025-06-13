@@ -61,25 +61,25 @@ H1RobotModule::H1RobotModule()
   using namespace mc_rtc::constants;
   _stance["left_hip_yaw_joint"] = {0.0};
   _stance["left_hip_roll_joint"] = {0.0};
-  _stance["left_hip_pitch_joint"] = {-0.4};
-  _stance["left_knee_joint"] = {0.8};
+  _stance["left_hip_pitch_joint"] = {-0.2};
+  _stance["left_knee_joint"] = {0.6};
   _stance["left_ankle_joint"] = {-0.4};
   _stance["right_hip_yaw_joint"] = {0.0};
   _stance["right_hip_roll_joint"] = {0.0};
-  _stance["right_hip_pitch_joint"] = {-0.4};
-  _stance["right_knee_joint"] = {0.8};
+  _stance["right_hip_pitch_joint"] = {-0.2};
+  _stance["right_knee_joint"] = {0.6};
   _stance["right_ankle_joint"] = {-0.4};
   _stance["torso_joint"] = {0.0};
-  _stance["left_shoulder_pitch_joint"] = {0.0};
+  _stance["left_shoulder_pitch_joint"] = {0.4};
   _stance["left_shoulder_roll_joint"] = {0.0};
   _stance["left_shoulder_yaw_joint"] = {0.0};
-  _stance["left_elbow_joint"] = {0.0};
-  _stance["right_shoulder_pitch_joint"] = {0.0};
+  _stance["left_elbow_joint"] = {-0.4};
+  _stance["right_shoulder_pitch_joint"] = {0.4};
   _stance["right_shoulder_roll_joint"] = {0.0};
   _stance["right_shoulder_yaw_joint"] = {0.0};
-  _stance["right_elbow_joint"] = {0.0};
+  _stance["right_elbow_joint"] = {-0.4};
   
-  _default_attitude = {{1., 0., 0., 0., 0., 0., 0.837656}};
+  _default_attitude = {{1., 0., 0., 0., 0., 0., 0.98}};
   
   // Add JointSensors for temperature/current logging
   for(size_t i = 0; i < _ref_joint_order.size(); ++i)
