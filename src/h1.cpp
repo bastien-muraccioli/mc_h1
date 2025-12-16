@@ -1,7 +1,6 @@
 #include "h1.h"
 #include "config.h"
 
-#include <mc_rbdyn/VirtualTorqueSensor.h>
 #include <mc_rtc/constants.h>
 #include <mc_rtc/logging.h>
 #include <RBDyn/parsers/urdf.h>
@@ -168,8 +167,6 @@ H1RobotModule::H1RobotModule()
                             sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
   _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
   _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
-
-  _devices.push_back(mc_rbdyn::VirtualTorqueSensor("ExtTorquesVirtSensor", 25).clone());
 
   _minimalSelfCollisions = {mc_rbdyn::Collision("torso_link", "left_shoulder_yaw_link", 0.02, 0.001, 0.),
                             mc_rbdyn::Collision("torso_link", "right_shoulder_yaw_link", 0.02, 0.001, 0.),
