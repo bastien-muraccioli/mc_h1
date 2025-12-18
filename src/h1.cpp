@@ -166,7 +166,6 @@ H1RobotModule::H1RobotModule()
   _bodySensors.emplace_back("Accelerometer", "torso_link",
                             sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
   _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
-  _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
 
   _minimalSelfCollisions = {mc_rbdyn::Collision("torso_link", "left_shoulder_yaw_link", 0.02, 0.001, 0.),
                             mc_rbdyn::Collision("torso_link", "right_shoulder_yaw_link", 0.02, 0.001, 0.),
