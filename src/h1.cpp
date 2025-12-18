@@ -44,27 +44,28 @@ H1RobotModule::H1RobotModule()
       "right_shoulder_roll_joint", "right_shoulder_yaw_joint", "right_elbow_joint"};
 
   // Override position, velocity and effort bounds
-  auto update_joint_limit = [this](const std::string & name, double limit_low, double limit_up)
+  auto & bounds = _bounds;
+  auto update_joint_limit = [&bounds](const std::string & name, double limit_low, double limit_up)
   {
     assert(limit_up > 0);
     assert(limit_low < 0);
-    assert(_bounds[0].at(name).size() == 1);
-    _bounds[0].at(name)[0] = limit_low;
-    _bounds[1].at(name)[0] = limit_up;
+    assert(bounds[0].at(name).size() == 1);
+    bounds[0].at(name)[0] = limit_low;
+    bounds[1].at(name)[0] = limit_up;
   };
-  auto update_velocity_limit = [this](const std::string & name, double limit)
+  auto update_velocity_limit = [&bounds](const std::string & name, double limit)
   {
     assert(limit > 0);
-    assert(_bounds[2].at(name).size() == 1);
-    _bounds[2].at(name)[0] = -limit;
-    _bounds[3].at(name)[0] = limit;
+    assert(bounds[2].at(name).size() == 1);
+    bounds[2].at(name)[0] = -limit;
+    bounds[3].at(name)[0] = limit;
   };
-  auto update_torque_limit = [this](const std::string & name, double limit)
+  auto update_torque_limit = [&bounds](const std::string & name, double limit)
   {
     assert(limit > 0);
-    assert(_bounds[4].at(name).size() == 1);
-    _bounds[4].at(name)[0] = -limit;
-    _bounds[5].at(name)[0] = limit;
+    assert(bounds[4].at(name).size() == 1);
+    bounds[4].at(name)[0] = -limit;
+    bounds[5].at(name)[0] = limit;
   };
 
   update_joint_limit("left_hip_yaw_joint", -0.35, 0.35);
@@ -162,7 +163,6 @@ H1RobotModule::H1RobotModule()
   }
 
   // Sensors
-  _bodySensors.clear();
   _bodySensors.emplace_back("Accelerometer", "torso_link",
                             sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
   _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
