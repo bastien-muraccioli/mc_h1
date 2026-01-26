@@ -24,18 +24,18 @@ H1RobotModule::H1RobotModule()
   // Makes all the basic initialization that can be done from an URDF file
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
 
-#if 0
+  // #if 0
   // Build _convexHull, but conflict primitives defined in h1.urdf
   bfs::path convexPath = bfs::path(path) / "convex/h1";
   for(const auto & b : mb.bodies())
   {
-    bfs::path ch = convexPath / (b.name() + ".txt");
+    bfs::path ch = convexPath / (b.name() + "-ch.txt");
     if(bfs::exists(ch))
     {
       _convexHull[b.name()] = {b.name(), ch.string()};
     }
   }
-#endif
+  // #endif
 
   _ref_joint_order = {
       "left_hip_yaw_joint",        "left_hip_roll_joint",      "left_hip_pitch_joint", "left_knee_joint",
@@ -171,19 +171,24 @@ H1RobotModule::H1RobotModule()
 
   _devices.push_back(mc_rbdyn::VirtualTorqueSensor("ExtTorquesVirtSensor", 25).clone());
 
-  _minimalSelfCollisions = {mc_rbdyn::Collision("torso_link", "left_shoulder_yaw_link", 0.02, 0.001, 0.),
-                            mc_rbdyn::Collision("torso_link", "right_shoulder_yaw_link", 0.02, 0.001, 0.),
-                            mc_rbdyn::Collision("torso_link", "left_elbow_link", 0.05, 0.03, 0.),
-                            mc_rbdyn::Collision("torso_link", "right_elbow_link", 0.05, 0.03, 0.),
-                            mc_rbdyn::Collision("pelvis", "left_shoulder_yaw_link", 0.05, 0.03, 0.),
-                            mc_rbdyn::Collision("pelvis", "right_shoulder_yaw_link", 0.05, 0.03, 0.),
-                            mc_rbdyn::Collision("pelvis", "left_elbow_link", 0.05, 0.03, 0.),
-                            mc_rbdyn::Collision("pelvis", "right_elbow_link", 0.05, 0.03, 0.),
-                            mc_rbdyn::Collision("left_hip_pitch_link", "right_hip_pitch_link", 0.02, 0.01, 0.),
-                            mc_rbdyn::Collision("left_knee_link", "right_knee_link", 0.02, 0.01, 0.),
-                            mc_rbdyn::Collision("left_ankle_link", "right_ankle_link", 0.02, 0.01, 0.),
-                            mc_rbdyn::Collision("left_ankle_link", "right_knee_link", 0.02, 0.01, 0.),
-                            mc_rbdyn::Collision("right_ankle_link", "left_knee_link", 0.02, 0.01, 0.)};
+  _minimalSelfCollisions = {
+
+      // Right arm (hand) - Right part of the body
+      mc_rbdyn::Collision("torso_link", "right_elbow_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("pelvis", "right_elbow_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("right_hip_pitch_link", "right_elbow_link", 0.02, 0.01, 0.),
+
+      // Left arm (hand) - Left part of the body
+      mc_rbdyn::Collision("torso_link", "left_elbow_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("pelvis", "left_elbow_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("left_hip_pitch_link", "left_elbow_link", 0.02, 0.01, 0.),
+
+      // Right leg (foot) - Left leg (foot)
+      mc_rbdyn::Collision("right_hip_pitch_link", "left_hip_pitch_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("right_knee_link", "left_knee_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("right_ankle_link", "left_ankle_link", 0.02, 0.01, 0.),
+      mc_rbdyn::Collision("left_ankle_link", "right_knee_link", 0.05, 0.03, 0.),
+      mc_rbdyn::Collision("right_ankle_link", "left_knee_link", 0.02, 0.01, 0.)};
   _commonSelfCollisions = _minimalSelfCollisions;
 }
 
