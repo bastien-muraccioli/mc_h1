@@ -23,18 +23,18 @@ H1RobotModule::H1RobotModule()
   // Makes all the basic initialization that can be done from an URDF file
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
 
-  // #if 0
+#if 0
   // Build _convexHull, but conflict primitives defined in h1.urdf
   bfs::path convexPath = bfs::path(path) / "convex/h1";
   for(const auto & b : mb.bodies())
   {
-    bfs::path ch = convexPath / (b.name() + "-ch.txt");
+    bfs::path ch = convexPath / (b.name() + ".txt");
     if(bfs::exists(ch))
     {
       _convexHull[b.name()] = {b.name(), ch.string()};
     }
   }
-  // #endif
+#endif
 
   _ref_joint_order = {
       "left_hip_yaw_joint",        "left_hip_roll_joint",      "left_hip_pitch_joint", "left_knee_joint",
