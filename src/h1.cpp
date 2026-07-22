@@ -66,320 +66,67 @@ H1RobotModule::H1RobotModule()
     bounds[5].at(name)[0] = limit;
   };
 
-  // Better for real hardware
-  // update_joint_limit("left_hip_yaw_joint", -0.35, 0.35);
-  // update_velocity_limit("left_hip_yaw_joint", 23.0);
-  // update_torque_limit("left_hip_yaw_joint", 200.0);
-  // update_joint_limit("left_hip_roll_joint", -0.3, 0.3);
-  // update_velocity_limit("left_hip_roll_joint", 23.0);
-  // update_torque_limit("left_hip_roll_joint", 200.0);
-  // update_joint_limit("left_hip_pitch_joint", -2.0, 0.9);
-  // update_velocity_limit("left_hip_pitch_joint", 23.0);
-  // update_torque_limit("left_hip_pitch_joint", 200.0);
-  // update_joint_limit("left_knee_joint", -0.05, 1.7);
-  // update_velocity_limit("left_knee_joint", 14.0);
-  // update_torque_limit("left_knee_joint", 300.0);
-  // update_joint_limit("left_ankle_joint", -0.75, 0.4);
-  // update_velocity_limit("left_ankle_joint", 9.0);
-  // update_torque_limit("left_ankle_joint", 40.0);
-
-  // update_joint_limit("right_hip_yaw_joint", -0.35, 0.35);
-  // update_velocity_limit("right_hip_yaw_joint", 23.0);
-  // update_torque_limit("right_hip_yaw_joint", 200.0);
-  // update_joint_limit("right_hip_roll_joint", -0.3, 0.3);
-  // update_velocity_limit("right_hip_roll_joint", 23.0);
-  // update_torque_limit("right_hip_roll_joint", 200.0);
-  // update_joint_limit("right_hip_pitch_joint", -2.0, 0.9);
-  // update_velocity_limit("right_hip_pitch_joint", 23.0);
-  // update_torque_limit("right_hip_pitch_joint", 200.0);
-  // update_joint_limit("right_knee_joint", -0.05, 1.7);
-  // update_velocity_limit("right_knee_joint", 14.0);
-  // update_torque_limit("right_knee_joint", 300.0);
-  // update_joint_limit("right_ankle_joint", -0.75, 0.4);
-  // update_velocity_limit("right_ankle_joint", 9.0);
-  // update_torque_limit("right_ankle_joint", 40.0);
-
-  // update_joint_limit("torso_joint", -1.65, 1.65);
-  // update_velocity_limit("torso_joint", 23.0);
-  // update_torque_limit("torso_joint", 200.0);
-
-  // update_joint_limit("left_shoulder_pitch_joint", -2.7, 2.7);
-  // update_velocity_limit("left_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("left_shoulder_pitch_joint", 40.0);
-  // update_joint_limit("left_shoulder_roll_joint", -0.2, 2.8);
-  // update_velocity_limit("left_shoulder_roll_joint", 9.0);
-  // update_torque_limit("left_shoulder_roll_joint", 40.0);
-  // update_joint_limit("left_shoulder_yaw_joint", -0.8, 3.8);
-  // update_velocity_limit("left_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("left_shoulder_yaw_joint", 18.0);
-  // update_joint_limit("left_elbow_joint", -0.85, 2.4);
-  // update_velocity_limit("left_elbow_joint", 20.0);
-  // update_torque_limit("left_elbow_joint", 18.0);
-
-  // update_joint_limit("right_shoulder_pitch_joint", -2.7, 2.7);
-  // update_velocity_limit("right_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("right_shoulder_pitch_joint", 40.0);
-  // update_joint_limit("right_shoulder_roll_joint", -2.8, 0.2);
-  // update_velocity_limit("right_shoulder_roll_joint", 9.0);
-  // update_torque_limit("right_shoulder_roll_joint", 40.0);
-  // update_joint_limit("right_shoulder_yaw_joint", -3.8, 0.8);
-  // update_velocity_limit("right_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("right_shoulder_yaw_joint", 18.0);
-  // update_joint_limit("right_elbow_joint", -0.85, 2.4);
-  // update_velocity_limit("right_elbow_joint", 20.0);
-  // update_torque_limit("right_elbow_joint", 18.0);
-
-  // Based on the official Unitree URDF
-  // update_joint_limit("left_hip_yaw_joint", -0.43, 0.43);
-  // update_velocity_limit("left_hip_yaw_joint", 23.0);
-  // update_torque_limit("left_hip_yaw_joint", 200.0);
-  // update_joint_limit("left_hip_roll_joint", -0.43, 0.43);
-  // update_velocity_limit("left_hip_roll_joint", 23.0);
-  // update_torque_limit("left_hip_roll_joint", 200.0);
-  // update_joint_limit("left_hip_pitch_joint", -3.14, 2.53);
-  // update_velocity_limit("left_hip_pitch_joint", 23.0);
-  // update_torque_limit("left_hip_pitch_joint", 200.0);
-  // update_joint_limit("left_knee_joint", -0.26, 2.05);
-  // update_velocity_limit("left_knee_joint", 14.0);
-  // update_torque_limit("left_knee_joint", 300.0);
-  // update_joint_limit("left_ankle_joint", -0.87, 0.52);
-  // update_velocity_limit("left_ankle_joint", 9.0);
-  // update_torque_limit("left_ankle_joint", 40.0);
-
-  // update_joint_limit("right_hip_yaw_joint", -0.43, 0.43);
-  // update_velocity_limit("right_hip_yaw_joint", 23.0);
-  // update_torque_limit("right_hip_yaw_joint", 200.0);
-  // update_joint_limit("right_hip_roll_joint", -0.43, 0.43);
-  // update_velocity_limit("right_hip_roll_joint", 23.0);
-  // update_torque_limit("right_hip_roll_joint", 200.0);
-  // update_joint_limit("right_hip_pitch_joint", -3.14, 2.53);
-  // update_velocity_limit("right_hip_pitch_joint", 23.0);
-  // update_torque_limit("right_hip_pitch_joint", 200.0);
-  // update_joint_limit("right_knee_joint", -0.26, 2.05);
-  // update_velocity_limit("right_knee_joint", 14.0);
-  // update_torque_limit("right_knee_joint", 300.0);
-  // update_joint_limit("right_ankle_joint", -0.87, 0.52);
-  // update_velocity_limit("right_ankle_joint", 9.0);
-  // update_torque_limit("right_ankle_joint", 40.0);
-
-  // update_joint_limit("torso_joint", -2.35, 2.35);
-  // update_velocity_limit("torso_joint", 23.0);
-  // update_torque_limit("torso_joint", 200.0);
-
-  // update_joint_limit("left_shoulder_pitch_joint", -2.87, 2.87);
-  // update_velocity_limit("left_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("left_shoulder_pitch_joint", 40.0);
-  // update_joint_limit("left_shoulder_roll_joint", -0.34, 3.11);
-  // update_velocity_limit("left_shoulder_roll_joint", 9.0);
-  // update_torque_limit("left_shoulder_roll_joint", 40.0);
-  // update_joint_limit("left_shoulder_yaw_joint", -1.3, 4.45);
-  // update_velocity_limit("left_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("left_shoulder_yaw_joint", 18.0);
-  // update_joint_limit("left_elbow_joint", -1.25, 2.61);
-  // update_velocity_limit("left_elbow_joint", 20.0);
-  // update_torque_limit("left_elbow_joint", 18.0);
-
-  // update_joint_limit("right_shoulder_pitch_joint", -2.87, 2.87);
-  // update_velocity_limit("right_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("right_shoulder_pitch_joint", 40.0);
-  // update_joint_limit("right_shoulder_roll_joint", -3.11, 0.34);
-  // update_velocity_limit("right_shoulder_roll_joint", 9.0);
-  // update_torque_limit("right_shoulder_roll_joint", 40.0);
-  // update_joint_limit("right_shoulder_yaw_joint", -4.45, 1.3);
-  // update_velocity_limit("right_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("right_shoulder_yaw_joint", 18.0);
-  // update_joint_limit("right_elbow_joint", -1.25, 2.61);
-  // update_velocity_limit("right_elbow_joint", 20.0);
-  // update_torque_limit("right_elbow_joint", 18.0);
-
-  // Based on the official Unitree URDF with 120% torque limits
-  // update_joint_limit("left_hip_yaw_joint", -0.43, 0.43);
-  // update_velocity_limit("left_hip_yaw_joint", 23.0);
-  // update_torque_limit("left_hip_yaw_joint", 240.0);
-  // update_joint_limit("left_hip_roll_joint", -0.43, 0.43);
-  // update_velocity_limit("left_hip_roll_joint", 23.0);
-  // update_torque_limit("left_hip_roll_joint", 240.0);
-  // update_joint_limit("left_hip_pitch_joint", -3.14, 2.53);
-  // update_velocity_limit("left_hip_pitch_joint", 23.0);
-  // update_torque_limit("left_hip_pitch_joint", 240.0);
-  // update_joint_limit("left_knee_joint", -0.26, 2.05);
-  // update_velocity_limit("left_knee_joint", 14.0);
-  // update_torque_limit("left_knee_joint", 360.0);
-  // update_joint_limit("left_ankle_joint", -0.87, 0.52);
-  // update_velocity_limit("left_ankle_joint", 9.0);
-  // update_torque_limit("left_ankle_joint", 48.0);
-
-  // update_joint_limit("right_hip_yaw_joint", -0.43, 0.43);
-  // update_velocity_limit("right_hip_yaw_joint", 23.0);
-  // update_torque_limit("right_hip_yaw_joint", 240.0);
-  // update_joint_limit("right_hip_roll_joint", -0.43, 0.43);
-  // update_velocity_limit("right_hip_roll_joint", 23.0);
-  // update_torque_limit("right_hip_roll_joint", 240.0);
-  // update_joint_limit("right_hip_pitch_joint", -3.14, 2.53);
-  // update_velocity_limit("right_hip_pitch_joint", 23.0);
-  // update_torque_limit("right_hip_pitch_joint", 240.0);
-  // update_joint_limit("right_knee_joint", -0.26, 2.05);
-  // update_velocity_limit("right_knee_joint", 14.0);
-  // update_torque_limit("right_knee_joint", 360.0);
-  // update_joint_limit("right_ankle_joint", -0.87, 0.52);
-  // update_velocity_limit("right_ankle_joint", 9.0);
-  // update_torque_limit("right_ankle_joint", 48.0);
-
-  // update_joint_limit("torso_joint", -2.35, 2.35);
-  // update_velocity_limit("torso_joint", 23.0);
-  // update_torque_limit("torso_joint", 240.0);
-
-  // update_joint_limit("left_shoulder_pitch_joint", -2.87, 2.87);
-  // update_velocity_limit("left_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("left_shoulder_pitch_joint", 48.0);
-  // update_joint_limit("left_shoulder_roll_joint", -0.34, 3.11);
-  // update_velocity_limit("left_shoulder_roll_joint", 9.0);
-  // update_torque_limit("left_shoulder_roll_joint", 48.0);
-  // update_joint_limit("left_shoulder_yaw_joint", -1.3, 4.45);
-  // update_velocity_limit("left_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("left_shoulder_yaw_joint", 21.6);
-  // update_joint_limit("left_elbow_joint", -1.25, 2.61);
-  // update_velocity_limit("left_elbow_joint", 20.0);
-  // update_torque_limit("left_elbow_joint", 21.6);
-
-  // update_joint_limit("right_shoulder_pitch_joint", -2.87, 2.87);
-  // update_velocity_limit("right_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("right_shoulder_pitch_joint", 48.0);
-  // update_joint_limit("right_shoulder_roll_joint", -3.11, 0.34);
-  // update_velocity_limit("right_shoulder_roll_joint", 9.0);
-  // update_torque_limit("right_shoulder_roll_joint", 48.0);
-  // update_joint_limit("right_shoulder_yaw_joint", -4.45, 1.3);
-  // update_velocity_limit("right_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("right_shoulder_yaw_joint", 21.6);
-  // update_joint_limit("right_elbow_joint", -1.25, 2.61);
-  // update_velocity_limit("right_elbow_joint", 20.0);
-  // update_torque_limit("right_elbow_joint", 21.6);
-
-  // PA with 120% torque limits
-  // update_joint_limit("left_hip_yaw_joint", -0.48, 0.48);
-  // update_velocity_limit("left_hip_yaw_joint", 23.0);
-  // update_torque_limit("left_hip_yaw_joint", 240.0);
-  // update_joint_limit("left_hip_roll_joint", -0.35, 0.35);
-  // update_velocity_limit("left_hip_roll_joint", 23.0);
-  // update_torque_limit("left_hip_roll_joint", 240.0);
-  // update_joint_limit("left_hip_pitch_joint", -2.58, 2.58);
-  // update_velocity_limit("left_hip_pitch_joint", 23.0);
-  // update_torque_limit("left_hip_pitch_joint", 240.0);
-  // update_joint_limit("left_knee_joint", 0.05, 2.1);
-  // update_velocity_limit("left_knee_joint", 14.0);
-  // update_torque_limit("left_knee_joint", 360.0);
-  // update_joint_limit("left_ankle_joint", -0.92, 0.57);
-  // update_velocity_limit("left_ankle_joint", 9.0);
-  // update_torque_limit("left_ankle_joint", 48.0);
-
-  // update_joint_limit("right_hip_yaw_joint", -0.48, 0.48);
-  // update_velocity_limit("right_hip_yaw_joint", 23.0);
-  // update_torque_limit("right_hip_yaw_joint", 240.0);
-  // update_joint_limit("right_hip_roll_joint", -0.35, 0.35);
-  // update_velocity_limit("right_hip_roll_joint", 23.0);
-  // update_torque_limit("right_hip_roll_joint", 240.0);
-  // update_joint_limit("right_hip_pitch_joint", -2.58, 2.58);
-  // update_velocity_limit("right_hip_pitch_joint", 23.0);
-  // update_torque_limit("right_hip_pitch_joint", 240.0);
-  // update_joint_limit("right_knee_joint", 0.05, 2.1);
-  // update_velocity_limit("right_knee_joint", 14.0);
-  // update_torque_limit("right_knee_joint", 360.0);
-  // update_joint_limit("right_ankle_joint", -0.92, 0.57);
-  // update_velocity_limit("right_ankle_joint", 9.0);
-  // update_torque_limit("right_ankle_joint", 48.0);
-
-  // update_joint_limit("torso_joint", -0.35, 0.35);
-  // update_velocity_limit("torso_joint", 23.0);
-  // update_torque_limit("torso_joint", 240.0);
-
-  // update_joint_limit("left_shoulder_pitch_joint", -1.05, 1.05);
-  // update_velocity_limit("left_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("left_shoulder_pitch_joint", 48.0);
-  // update_joint_limit("left_shoulder_roll_joint", -0.39, 0.39);
-  // update_velocity_limit("left_shoulder_roll_joint", 9.0);
-  // update_torque_limit("left_shoulder_roll_joint", 48.0);
-  // update_joint_limit("left_shoulder_yaw_joint", -1.35, 1.35);
-  // update_velocity_limit("left_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("left_shoulder_yaw_joint", 21.6);
-  // update_joint_limit("left_elbow_joint", -1.30, 1.30);
-  // update_velocity_limit("left_elbow_joint", 20.0);
-  // update_torque_limit("left_elbow_joint", 21.6);
-
-  // update_joint_limit("right_shoulder_pitch_joint", -1.05, 1.05);
-  // update_velocity_limit("right_shoulder_pitch_joint", 9.0);
-  // update_torque_limit("right_shoulder_pitch_joint", 48.0);
-  // update_joint_limit("right_shoulder_roll_joint", -0.39, 0.39);
-  // update_velocity_limit("right_shoulder_roll_joint", 9.0);
-  // update_torque_limit("right_shoulder_roll_joint", 48.0);
-  // update_joint_limit("right_shoulder_yaw_joint", -1.35, 1.35);
-  // update_velocity_limit("right_shoulder_yaw_joint", 20.0);
-  // update_torque_limit("right_shoulder_yaw_joint", 21.6);
-  // update_joint_limit("right_elbow_joint", -1.30, 1.30);
-  // update_velocity_limit("right_elbow_joint", 20.0);
-  // update_torque_limit("right_elbow_joint", 21.6);
-
-  // PA
-  update_joint_limit("left_hip_yaw_joint", -0.48, 0.48);
+  update_joint_limit("left_hip_yaw_joint", -0.35, 0.35);
   update_velocity_limit("left_hip_yaw_joint", 23.0);
-  update_torque_limit("left_hip_yaw_joint", 150.0);
-  update_joint_limit("left_hip_roll_joint", -0.35, 0.35);
+  update_torque_limit("left_hip_yaw_joint", 200.0);
+  update_joint_limit("left_hip_roll_joint", -0.3, 0.3);
   update_velocity_limit("left_hip_roll_joint", 23.0);
-  update_torque_limit("left_hip_roll_joint", 150.0);
-  update_joint_limit("left_hip_pitch_joint", -2.58, 2.58);
+  update_torque_limit("left_hip_roll_joint", 200.0);
+  update_joint_limit("left_hip_pitch_joint", -2.0, 0.9);
   update_velocity_limit("left_hip_pitch_joint", 23.0);
-  update_torque_limit("left_hip_pitch_joint", 150.0);
-  update_joint_limit("left_knee_joint", 0.05, 2.1);
+  update_torque_limit("left_hip_pitch_joint", 200.0);
+  update_joint_limit("left_knee_joint", -0.05, 1.7);
   update_velocity_limit("left_knee_joint", 14.0);
-  update_torque_limit("left_knee_joint", 150.0);
-  update_joint_limit("left_ankle_joint", -0.92, 0.57);
+  update_torque_limit("left_knee_joint", 300.0);
+  update_joint_limit("left_ankle_joint", -0.75, 0.4);
   update_velocity_limit("left_ankle_joint", 9.0);
-  update_torque_limit("left_ankle_joint", 30.0);
+  update_torque_limit("left_ankle_joint", 40.0);
 
-  update_joint_limit("right_hip_yaw_joint", -0.48, 0.48);
+  update_joint_limit("right_hip_yaw_joint", -0.35, 0.35);
   update_velocity_limit("right_hip_yaw_joint", 23.0);
-  update_torque_limit("right_hip_yaw_joint", 150.0);
-  update_joint_limit("right_hip_roll_joint", -0.35, 0.35);
+  update_torque_limit("right_hip_yaw_joint", 200.0);
+  update_joint_limit("right_hip_roll_joint", -0.3, 0.3);
   update_velocity_limit("right_hip_roll_joint", 23.0);
-  update_torque_limit("right_hip_roll_joint", 150.0);
-  update_joint_limit("right_hip_pitch_joint", -2.58, 2.58);
+  update_torque_limit("right_hip_roll_joint", 200.0);
+  update_joint_limit("right_hip_pitch_joint", -2.0, 0.9);
   update_velocity_limit("right_hip_pitch_joint", 23.0);
-  update_torque_limit("right_hip_pitch_joint", 150.0);
-  update_joint_limit("right_knee_joint", 0.05, 2.1);
+  update_torque_limit("right_hip_pitch_joint", 200.0);
+  update_joint_limit("right_knee_joint", -0.05, 1.7);
   update_velocity_limit("right_knee_joint", 14.0);
-  update_torque_limit("right_knee_joint", 150.0);
-  update_joint_limit("right_ankle_joint", -0.92, 0.57);
+  update_torque_limit("right_knee_joint", 300.0);
+  update_joint_limit("right_ankle_joint", -0.75, 0.4);
   update_velocity_limit("right_ankle_joint", 9.0);
-  update_torque_limit("right_ankle_joint", 30.0);
+  update_torque_limit("right_ankle_joint", 40.0);
 
-  update_joint_limit("torso_joint", -0.35, 0.35);
+  update_joint_limit("torso_joint", -1.65, 1.65);
   update_velocity_limit("torso_joint", 23.0);
-  update_torque_limit("torso_joint", 150.0);
+  update_torque_limit("torso_joint", 200.0);
 
-  update_joint_limit("left_shoulder_pitch_joint", -1.05, 1.05);
+  update_joint_limit("left_shoulder_pitch_joint", -2.7, 2.7);
   update_velocity_limit("left_shoulder_pitch_joint", 9.0);
-  update_torque_limit("left_shoulder_pitch_joint", 30.0);
-  update_joint_limit("left_shoulder_roll_joint", -0.39, 0.39);
+  update_torque_limit("left_shoulder_pitch_joint", 40.0);
+  update_joint_limit("left_shoulder_roll_joint", -0.2, 2.8);
   update_velocity_limit("left_shoulder_roll_joint", 9.0);
-  update_torque_limit("left_shoulder_roll_joint", 30.0);
-  update_joint_limit("left_shoulder_yaw_joint", -1.35, 1.35);
+  update_torque_limit("left_shoulder_roll_joint", 40.0);
+  update_joint_limit("left_shoulder_yaw_joint", -0.8, 3.8);
   update_velocity_limit("left_shoulder_yaw_joint", 20.0);
-  update_torque_limit("left_shoulder_yaw_joint", 30.0);
-  update_joint_limit("left_elbow_joint", -1.30, 1.30);
+  update_torque_limit("left_shoulder_yaw_joint", 18.0);
+  update_joint_limit("left_elbow_joint", -0.85, 2.4);
   update_velocity_limit("left_elbow_joint", 20.0);
-  update_torque_limit("left_elbow_joint", 30.0);
+  update_torque_limit("left_elbow_joint", 18.0);
 
-  update_joint_limit("right_shoulder_pitch_joint", -1.05, 1.05);
+  update_joint_limit("right_shoulder_pitch_joint", -2.7, 2.7);
   update_velocity_limit("right_shoulder_pitch_joint", 9.0);
-  update_torque_limit("right_shoulder_pitch_joint", 30.0);
-  update_joint_limit("right_shoulder_roll_joint", -0.39, 0.39);
+  update_torque_limit("right_shoulder_pitch_joint", 40.0);
+  update_joint_limit("right_shoulder_roll_joint", -2.8, 0.2);
   update_velocity_limit("right_shoulder_roll_joint", 9.0);
-  update_torque_limit("right_shoulder_roll_joint", 30.0);
-  update_joint_limit("right_shoulder_yaw_joint", -1.35, 1.35);
+  update_torque_limit("right_shoulder_roll_joint", 40.0);
+  update_joint_limit("right_shoulder_yaw_joint", -3.8, 0.8);
   update_velocity_limit("right_shoulder_yaw_joint", 20.0);
-  update_torque_limit("right_shoulder_yaw_joint", 30.0);
-  update_joint_limit("right_elbow_joint", -1.30, 1.30);
+  update_torque_limit("right_shoulder_yaw_joint", 18.0);
+  update_joint_limit("right_elbow_joint", -0.85, 2.4);
   update_velocity_limit("right_elbow_joint", 20.0);
-  update_torque_limit("right_elbow_joint", 30.0);
+  update_torque_limit("right_elbow_joint", 18.0);
 
   using namespace mc_rtc::constants;
   _stance["left_hip_yaw_joint"] = {0.0};
@@ -417,26 +164,20 @@ H1RobotModule::H1RobotModule()
   _bodySensors.emplace_back("Accelerometer", "torso_link",
                             sva::PTransformd(Eigen::Vector3d(-0.04452, -0.01891, 0.27756)));
   _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
-  _bodySensors.emplace_back("FloatingBase", "pelvis", sva::PTransformd::Identity());
 
-  _minimalSelfCollisions = {
-
-      // Right arm (hand) - Right part of the body
-      mc_rbdyn::Collision("torso_link", "right_elbow_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("pelvis", "right_elbow_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("right_hip_pitch_link", "right_elbow_link", 0.02, 0.01, 0.),
-
-      // Left arm (hand) - Left part of the body
-      mc_rbdyn::Collision("torso_link", "left_elbow_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("pelvis", "left_elbow_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("left_hip_pitch_link", "left_elbow_link", 0.02, 0.01, 0.),
-
-      // Right leg (foot) - Left leg (foot)
-      mc_rbdyn::Collision("right_hip_pitch_link", "left_hip_pitch_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("right_knee_link", "left_knee_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("right_ankle_link", "left_ankle_link", 0.02, 0.01, 0.),
-      mc_rbdyn::Collision("left_ankle_link", "right_knee_link", 0.05, 0.03, 0.),
-      mc_rbdyn::Collision("right_ankle_link", "left_knee_link", 0.02, 0.01, 0.)};
+  _minimalSelfCollisions = {mc_rbdyn::Collision("torso_link", "left_shoulder_yaw_link", 0.02, 0.001, 0.),
+                            mc_rbdyn::Collision("torso_link", "right_shoulder_yaw_link", 0.02, 0.001, 0.),
+                            mc_rbdyn::Collision("torso_link", "left_elbow_link", 0.05, 0.03, 0.),
+                            mc_rbdyn::Collision("torso_link", "right_elbow_link", 0.05, 0.03, 0.),
+                            mc_rbdyn::Collision("pelvis", "left_shoulder_yaw_link", 0.05, 0.03, 0.),
+                            mc_rbdyn::Collision("pelvis", "right_shoulder_yaw_link", 0.05, 0.03, 0.),
+                            mc_rbdyn::Collision("pelvis", "left_elbow_link", 0.05, 0.03, 0.),
+                            mc_rbdyn::Collision("pelvis", "right_elbow_link", 0.05, 0.03, 0.),
+                            mc_rbdyn::Collision("left_hip_pitch_link", "right_hip_pitch_link", 0.02, 0.01, 0.),
+                            mc_rbdyn::Collision("left_knee_link", "right_knee_link", 0.02, 0.01, 0.),
+                            mc_rbdyn::Collision("left_ankle_link", "right_ankle_link", 0.02, 0.01, 0.),
+                            mc_rbdyn::Collision("left_ankle_link", "right_knee_link", 0.02, 0.01, 0.),
+                            mc_rbdyn::Collision("right_ankle_link", "left_knee_link", 0.02, 0.01, 0.)};
   _commonSelfCollisions = _minimalSelfCollisions;
 }
 
